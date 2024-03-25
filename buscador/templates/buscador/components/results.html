@@ -1,0 +1,23 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+  <div class="container mb-5">
+    <div id="page-header"
+         class="d-flex flex-wrap justify-content-center p-2 mt-2">
+      <span class="fs-4">Resultados da busca por: {{ search_term }}</span>
+    </div>
+  </div>
+  <div id="page-grid" class="container">
+    <div id="main_content" class="container-fluid">
+      {% for page in pages %}
+        <div id="search-item"
+             class="row rounded-2 border-primary p-2 mb-3 shadow-sm">
+          <h2>{{ page.title }}</h2>
+          <a href={{ page.index }}>{{ page.index }}</a>
+          <p>Pontuação: {{ page.evaluation.get_total_points }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

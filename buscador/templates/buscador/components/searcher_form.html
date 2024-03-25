@@ -1,0 +1,37 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static "buscador/override.css" %}" media="screen" />
+{% block content %}
+  <div class="d-flex justify-content-center flex-column vh-100 align-items-center bg-secondary  ">
+    {% if messages %}
+      <div class="alert alert-danger messages">
+        {% for message in messages %}
+          <p {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="d-flex flex-column justify-content-center align-items-center shadow p-5 bg-white rounded w-50">
+      <h1 class="m-4">Patro-Search</h1>
+      <form class="d-flex justify-content-center align-items-center flex-column w-50"
+            action="{% url "buscador:results" %}"
+            method="get">
+        <input id="search-term"
+               name="termo"
+               class="form-control mb-3"
+               type="text"
+               placeholder="O que você quer encontrar?" />
+        <button class="btn btn-primary w-50" type="submit">Buscar</button>
+      </form>
+      <div>
+        <a class="btn btn-danger m-2 "
+           href="{% url "buscador:clean_indexer_view" %}">LIMPAR PÁGINAS</a>
+      </div>
+    </div>
+  </div>
+  <div id="site-footer"
+       class="d-flex bg-black w-100 align-itens-center justify-content-center p-3">
+    <span class="text-white">Créditos <a href="https://pagina-fera.vercel.app">Só os normais</a></span>
+  </div>
+{% endblock content %}
