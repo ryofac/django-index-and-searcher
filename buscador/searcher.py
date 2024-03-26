@@ -41,9 +41,9 @@ class Searcher:
                     search_term,
                 )
                 page.evaluation.frequency_points += (
-                    occurrencies * utils.config["occurrency"]
+                    occurrencies * utils.get_config()["occurrency"]
                 )
-                page.evaluation.tags_points += occurrencies * utils.config[tag]
+                page.evaluation.tags_points += occurrencies * utils.get_config()[tag]
                 page.evaluation.save()
 
     def _get_ocurrencies(self, html_tag: str, content: str, search_term: str):

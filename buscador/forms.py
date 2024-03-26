@@ -34,3 +34,7 @@ class UpdateParamsForm(forms.Form):
     invalid_date_penalty = forms.FloatField(
         label="Valor de data inválida", required=False
     )
+
+    is_domain_especific = forms.BooleanField(
+        label="Busca por páginas pelo prefixo da página inicial"
+    )

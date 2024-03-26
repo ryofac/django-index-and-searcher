@@ -26,7 +26,7 @@ class Evaluation(models.Model):
 
     def fresh_evaluation(self, page_date: datetime):
         if page_date is None:
-            self.fresh_points = -utils.config["invalid_date_penalty"]
+            self.fresh_points = -utils.get_config()["invalid_date_penalty"]
             self.is_date_invalid = True
             return
         # Validação de data:.
@@ -35,8 +35,8 @@ class Evaluation(models.Model):
             (current_date.date() - page_date.date()).days / 365.25,
         )
         self.fresh_points = (
-            utils.config["fresh_content"]
-            - date_difference * utils.config["fresh_content_penalty"]
+            utils.get_config()["fresh_content"]
+            - date_difference * utils.get_config()["fresh_content_penalty"]
         )
 
 

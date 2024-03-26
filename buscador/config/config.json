@@ -1,8 +1,9 @@
 {
-    "index_start_point": "https://diolinux.com.br",
-    "max_links_per_search": 5,
-    "max_depth_search": 3,
-    "autority": 20,
+    "index_start_point": "https://mangalivre.info",
+    "is_domain_especifc": false,
+    "max_links_per_search": 40,
+    "max_depth_search": 2,
+    "autority": 2,
     "occurrency": 5,
     "meta": 20,
     "h1": 15,
@@ -13,5 +14,6 @@
     "fresh_content_penalty": 5,
     "auto_reference_penalty": 20,
     "invalid_date_penalty": 20,
-    "csrfmiddlewaretoken": "g7Hgac6qokODT2YGXlIrSDQApjF1yhaGLPaT7DmRzSuDzDR88pCPCXeLXPrdjr3f"
+    "csrfmiddlewaretoken": "h2PIxr9v8WochmD8Q1pKm2ShKpoTg5ao0q54j6L74dM5BYGEBb1SJmQx4NCwqqvI",
+    "is_domain_especific": "on"
 }

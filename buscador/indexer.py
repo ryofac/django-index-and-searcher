@@ -11,9 +11,9 @@ from buscador.models import Evaluation, ExternalLink, Page
 class Indexer:
     def index(
         self,
-        url: str = utils.config["index_start_point"],
+        url: str = utils.get_config()["index_start_point"],
         depth=0,
-        max_depth=utils.config["max_depth_search"],
+        max_depth=utils.get_config()["max_depth_search"],
     ) -> None:
         print("Tentando indexar: " + url)
         if depth > max_depth:
@@ -39,9 +39,15 @@ class Indexer:
 
             _count = 0
             for a in anchor_tags:
-                if _count > utils.config["max_links_per_search"]:
+                if _count > utils.get_config()["max_links_per_search"]:
                     break
-                regexHtpp = re.compile(r"\bhttps://\S+\b")
+                if utils.get_config()["is_domain_especifc"]:
+                    regexHtpp = re.compile(
+                        rf"{re.escape(utils.get_config()['index_start_point'])}.*"
+                    )
+                else:
+                    regexHtpp = re.compile(r"\bhttps://\S+\b")
+
                 link = a.get("href")
                 if not link:
                     continue
@@ -51,7 +57,7 @@ class Indexer:
 
             if url in page_links:
                 print("URL CHEGANDO", url)
-                page_evaluation.auto_reference_penalty = utils.config[
+                page_evaluation.auto_reference_penalty = utils.get_config()[
                     "auto_reference_penalty"
                 ]
                 page_evaluation.is_auto_reference = True
@@ -100,7 +106,9 @@ class Indexer:
                     page_found = Page.objects.get(index=link.url)
                     if link.url == page.index:
                         continue
-                    page_found.evaluation.autority_points += utils.config["autority"]
+                    page_found.evaluation.autority_points += utils.get_config()[
+                        "autority"
+                    ]
                     page_found.evaluation.save()
                 except Exception:
                     print("URL sem pontuação - não relacionou com nenhuma: skipando")

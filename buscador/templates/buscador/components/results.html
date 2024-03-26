@@ -25,5 +25,9 @@
         <div class="alert alert-warning align-itens">Nenhuma página encontrada!</div>
       {% endif %}
     </div>
+    <div id="site-footer"
+         class="d-flex bg-secondary w-100 align-itens-center justify-content-center p-3">
+      <a class="text-white" href="{% url "buscador:searcher_form_view" %}">Voltar a Página inicial</a>
+    </div>
   </div>
 {% endblock content %}
