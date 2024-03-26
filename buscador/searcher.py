@@ -2,8 +2,8 @@ import re
 
 from bs4 import BeautifulSoup
 
+from buscador import utils
 from buscador.models import Page
-from buscador.utils import multiplyers
 
 
 class Searcher:
@@ -41,10 +41,9 @@ class Searcher:
                     search_term,
                 )
                 page.evaluation.frequency_points += (
-                    occurrencies * multiplyers["occurrency"]
+                    occurrencies * utils.config["occurrency"]
                 )
-                print(f"Tag: {tag}, ocorrências: {occurrencies}; página {page.title}")
-                page.evaluation.tags_points += occurrencies * multiplyers[tag]
+                page.evaluation.tags_points += occurrencies * utils.config[tag]
                 page.evaluation.save()
 
     def _get_ocurrencies(self, html_tag: str, content: str, search_term: str):

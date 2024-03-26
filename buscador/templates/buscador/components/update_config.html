@@ -1,0 +1,71 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+  <div id="main_content" class="d-flex flex-column">
+    <div class="container align-itens-center justify-content-center flex-column">
+      <form method="post" action="{% url "buscador:update_config" %}">
+        <div class="form-group">
+          <label for="index_start_point">Url personalizada (atual: {{ current_conf.index_start_point }})</label>
+          {{ form.index_start_point }}
+        </div>
+        <div class="form-group">
+          <label for="max_links_per_search">
+            Quantidade máximas links a indexadas de cada página ({{ current_conf.max_links_per_search }})
+          </label>
+          {{ form.max_links_per_search }}
+        </div>
+        <div class="form-group">
+          <label for="max_depth_search">Profundidade da busca ({{ current_conf.max_depth_search }})</label>
+          {{ form.max_depth_search }}
+        </div>
+        <div class="form-group">
+          <label for="autority">Multiplicador de Autoridade ({{ current_conf.autority }})</label>
+          {{ form.autority }}
+        </div>
+        <div class="form-group">
+          <label for="occurrency">Multiplicador de Ocorrência ({{ current_conf.occurrency }})</label>
+          {{ form.occurrency }}
+        </div>
+        <div class="form-group">
+          <label for="meta">Multiplicador de Meta-Tags ({{ current_conf.meta }})</label>
+          {{ form.meta }}
+        </div>
+        <div class="form-group">
+          <label for="h1">Multiplicador de h1-Tags ({{ current_conf.h1 }})</label>
+          {{ form.h1 }}
+        </div>
+        <div class="form-group">
+          <label for="h2">Multiplicador de h2-Tags ({{ current_conf.h2 }})</label>
+          {{ form.h2 }}
+        </div>
+        <div class="form-group">
+          <label for="p">Multiplicador de p-Tags ({{ current_conf.p }})</label>
+          {{ form.p }}
+        </div>
+        <div class="form-group">
+          <label for="a">Multiplicador de a-Tags ({{ current_conf.a }})</label>
+          {{ form.a }}
+        </div>
+        <div class="form-group">
+          <label for="fresh_content">Multiplicador Frescor da Página ({{ current_conf.fresh_content }})</label>
+          {{ form.fresh_content }}
+        </div>
+        <div class="form-group">
+          <label for="fresh_content_penalty">Penalidade de Frescor da página ({{ current_conf.fresh_content_penalty }})</label>
+          {{ form.fresh_content_penalty }}
+        </div>
+        <div class="form-group">
+          <label for="a">Penalidade de auto-referência ({{ current_conf.auto_reference_penalty }})</label>
+          {{ form.auto_reference_penalty }}
+        </div>
+        <div class="form-group">
+          <label for="a">Valor de data inválida ({{ current_conf.invalid_date_penalty }})</label>
+          {{ form.invalid_date_penalty }}
+        </div>
+        {% csrf_token %}
+        <button type="submit">ATUALIZAR DADOS</button>
+      </form>
+    </div>
+  </div>
+{% endblock content %}

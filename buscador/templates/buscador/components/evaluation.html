@@ -1,0 +1,63 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block content %}
+  <div class="container mb-5 mt-5">
+    {% if messages %}
+      <div class="alert alert-danger messages">
+        {% for message in messages %}
+          <p {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div id="page-header"
+         class="d-flex flex-wrap justify-content-center p-2 mt-2">
+      <span class="fs-4">Pontuação para a página: <a href="{{ evaluation.page.index }}">{{ evaluation.page.title }}</a></span>
+    </div>
+  </div>
+  <div id="table-container" class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Pontos de Autoridade</th>
+          <th scope="col">Pontos de Frequência</th>
+          <th scope="col">Pontos de Tag (Multiplicadores)</th>
+          <th scope="col">Pontos de Frescor da Página</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ evaluation.autority_points }}</td>
+          <td>{{ evaluation.frequency_points }}</td>
+          <td>{{ evaluation.tags_points }}</td>
+          <td>{{ evaluation.fresh_points }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="explanation" class="container mt-5 p-3">
+    <h2>Como as buscas são feitas?</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>Pontos de Autoridade :</b> O quanto essa página é referenciada por outras páginas, ganha {{ config.autority }} pontos pra cada vez referenciada
+      </li>
+      <li class="list-group-item">
+        <b>Pontos de Frequência:</b> O quanto o termo aparece no conteúdo, ganha {{ config.occurrency }} pontos por ocorrência
+      </li>
+      <li class="list-group-item">
+        <b>Pontos de Tag:</b> Pontuação baseada em que tag o termo aparece:
+        <ul>
+          <li>Title/Meta-tags: A pontuação é de {{ config.meta }} a cada ocorrência</li>
+          <li>H1: A pontuação é de {{ config.h1 }} por ocorrência</li>
+          <li>H2: A pontuação é de {{ config.h2 }} por ocorrência</li>
+          <li>A: A pontuação é de {{ config.a }} por ocorrência</li>
+          <li>P: A pontuação é de {{ config.p }} por ocorrência</li>
+        </ul>
+      </li>
+      <li class="list-group-item">
+        <b>Pontos de Frescor:</b> Se baseia no  período em que a página foi publicada, recebe {{ config.fresh_content }}
+        pontos iniciais, porém é decrescido {{ config.fresh_content_penalty }} pontos por cada ano passado do período atual
+      </li>
+    </ul>
+  </div>
+{% endblock content %}

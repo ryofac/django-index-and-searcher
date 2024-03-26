@@ -4,20 +4,26 @@
 {% block content %}
   <div class="container mb-5">
     <div id="page-header"
-         class="d-flex flex-wrap justify-content-center p-2 mt-2">
-      <span class="fs-4">Resultados da busca por: {{ search_term }}</span>
+         class="d-flex flex-wrap justify-content-center p-2 mt-5">
+      <span class="fs-4">Resultados da busca por: {{ search_term|urlizetrunc:20 }}</span>
     </div>
   </div>
   <div id="page-grid" class="container">
     <div id="main_content" class="container-fluid">
-      {% for page in pages %}
-        <div id="search-item"
-             class="row rounded-2 border-primary p-2 mb-3 shadow-sm">
-          <h2>{{ page.title }}</h2>
-          <a href={{ page.index }}>{{ page.index }}</a>
-          <p>Pontuação: {{ page.evaluation.get_total_points }}</p>
-        </div>
-      {% endfor %}
+      {% if pages %}
+        {% for page in pages %}
+          <div id="search-item"
+               class="row rounded-2 border-primary p-2 mb-3 shadow-sm">
+            <h2>{{ page.title }}</h2>
+            <a href={{ page.index }}>{{ page.index }}</a>
+            <p>{{ page.get_content|truncatechars:500 }}</p>
+            <a class="text-decoration-none"
+               href="{% url "buscador:evaluation_view" pk=page.evaluation.id %}">Pontuação: {{ page.evaluation.get_total_points }}</a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="alert alert-warning align-itens">Nenhuma página encontrada!</div>
+      {% endif %}
     </div>
   </div>
 {% endblock content %}

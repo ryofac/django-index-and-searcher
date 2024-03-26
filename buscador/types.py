@@ -1,7 +1,7 @@
 from typing import TypedDict
 
 
-class Multiplyers(TypedDict):
+class Config(TypedDict):
     autority: float
     occurrency: float
     meta: float

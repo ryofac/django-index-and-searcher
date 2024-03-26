@@ -1,15 +1,19 @@
-from buscador.types import Multiplyers
+import json
 
-multiplyers: Multiplyers = {
-    "autority": 20,
-    "occurrency": 5,
-    "meta": 20,
-    "h1": 15,
-    "h2": 10,
-    "p": 5,
-    "a": 2,
-    "fresh_content": 30,
-    "fresh_content_penalty": 5,
-    "auto_reference_penalty": 20,
-    "invalid_date_penalty": 20,
-}
+from buscador.types import Config
+
+file_path = "buscador/config/config.json"
+
+
+def get_json_config_from_file():
+    with open(file_path, "r") as file:
+        data = json.load(file)
+    return data
+
+
+def update_json_config_file(new_data):
+    with open(file_path, "w") as file:
+        json.dump(new_data, file, indent=4)
+
+
+config: Config = get_json_config_from_file()

@@ -1,0 +1,17 @@
+{
+    "index_start_point": "https://diolinux.com.br",
+    "max_links_per_search": 5,
+    "max_depth_search": 3,
+    "autority": 20,
+    "occurrency": 5,
+    "meta": 20,
+    "h1": 15,
+    "h2": 10,
+    "p": 5,
+    "a": 2,
+    "fresh_content": 30,
+    "fresh_content_penalty": 5,
+    "auto_reference_penalty": 20,
+    "invalid_date_penalty": 20,
+    "csrfmiddlewaretoken": "g7Hgac6qokODT2YGXlIrSDQApjF1yhaGLPaT7DmRzSuDzDR88pCPCXeLXPrdjr3f"
+}
