@@ -45,7 +45,7 @@ class ExternalLink(models.Model):
 
 
 class Page(models.Model):
-    title = models.CharField(verbose_name="Titulo")
+    title = models.CharField(verbose_name="Titulo", max_length=50)
     index = models.URLField(verbose_name="URL da Página")
     date = models.DateField(verbose_name="Data de Publicação", null=True)
     content = models.TextField(verbose_name="Conteúdo Html", default="")

@@ -1,5 +1,5 @@
 {
-    "index_start_point": "https://mangalivre.info",
+    "index_start_point": "https://www.youtube.com",
     "is_domain_especifc": false,
     "max_links_per_search": 40,
     "max_depth_search": 2,
@@ -14,6 +14,5 @@
     "fresh_content_penalty": 5,
     "auto_reference_penalty": 20,
     "invalid_date_penalty": 20,
-    "csrfmiddlewaretoken": "h2PIxr9v8WochmD8Q1pKm2ShKpoTg5ao0q54j6L74dM5BYGEBb1SJmQx4NCwqqvI",
     "is_domain_especific": "on"
 }
