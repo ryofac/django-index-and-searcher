@@ -14,8 +14,8 @@ Consiste em um sistema simples de indexação e busca de dados em sites html, co
 
 1. **Clone o repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone https://github.com/ryofac/django-index-and-searcher.git
+   cd django-index-and-searcher
    ```
 
 2. **Instale as dependências:**
