@@ -1,67 +1,67 @@
-# Projeto Django: Indexador e Buscador
+# Django Project: Indexer and Searcher
 
-Este projeto é uma aplicação Django baseada [na atividade de implementação de um indexador](https://github.com/ryofac/patro-search) do curso de Análise e Desenvolvimento de sistemas para a disciplina Programação para a Internet 1.
+This project is a Django application based on [the indexer implementation activity](https://github.com/ryofac/patro-search) from the Analysis and Systems Development course for the Internet Programming 1 discipline.
 
-Consiste em um sistema simples de indexação e busca de dados em sites html, com um arquivo de configurações editável (`config.json`) que só pode ser modificado quando a aplicação é inicializada.
+It consists of a simple system for indexing and searching data on HTML websites, with an editable configuration file (`config.json`) that can only be modified when the application is initialized.
 
-## Requisitos
+## Requirements
 
 - Python 3.x
-- Django 3.x ou superior
-- Outros requisitos especificados no arquivo `requirements.txt`
+- Django 3.x or higher
+- Other requirements specified in the `requirements.txt` file
 
-## Configuração Inicial
+## Initial Setup
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/ryofac/django-index-and-searcher.git
-   cd django-index-and-searcher
-   ```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/ryofac/django-index-and-searcher.git
+    cd django-index-and-searcher
+    ```
 
-2. **Instale as dependências:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-3. **Configure o banco de dados:**
-   Ajuste as configurações do banco de dados no arquivo `settings.py` conforme necessário.
+3.  **Configure the database:**
+    Adjust database settings in the `settings.py` file as needed.
 
-4. **Migre o banco de dados:**
-   ```bash
-   python manage.py migrate
-   ```
+4.  **Migrate the database:**
+    ```bash
+    python manage.py migrate
+    ```
 
-5. **Editar o arquivo de configurações:**
-   O arquivo `config.json` é editável apenas quando a aplicação é inicializada. Certifique-se de que as configurações necessárias estejam corretas antes de iniciar a aplicação.
+5.  **Edit the configuration file:**
+    The `config.json` file is editable only when the application is initialized. Ensure that the necessary settings are correct before starting the application.
 
-## Como Buildar
+## How to Build
 
-Este projeto inclui um script `run.sh` para buildar a aplicação. Siga os passos abaixo para utilizá-lo:
+This project includes a `run.sh` script to build the application. Follow the steps below to use it:
 
-1. **Dê permissão de execução ao script:**
-   ```bash
-   chmod +x run.sh
-   ```
+1.  **Give execute permission to the script:**
+    ```bash
+    chmod +x run.sh
+    ```
 
-2. **Execute o script:**
-   ```bash
-   ./run.sh
-   ```
+2.  **Execute the script:**
+    ```bash
+    ./run.sh
+    ```
 
-   O script `run.sh` irá buildar a aplicação e configurar o ambiente conforme necessário.
+    The `run.sh` script will build the application and configure the environment as needed.
 
-## Executando o Projeto
+## Running the Project
 
-Para iniciar o servidor de desenvolvimento, utilize o comando:
+To start the development server, use the command:
 
 ```bash
 python manage.py runserver
 ```
 
-O projeto estará disponível em `http://127.0.0.1:8000/`.
+The project will be available at `http://127.0.0.1:8000/`.
 
-## Estrutura do Projeto
-- **`buscador/`**: Diretório contendo a lógica de busca.
-- **`buscador/indexer.py`**: Arquivo que contém a lógica de indexação.
-- **`config/config.json`**: Arquivo de configurações, editável apenas na inicialização.
-- **`run.sh`**: Script para buildar o projeto.
+## Project Structure
+-   **`buscador/`**: Directory containing the search logic.
+-   **`buscador/indexer.py`**: File containing the indexing logic.
+-   **`config/config.json`**: Configuration file, editable only at initialization.
+-   **`run.sh`**: Script to build the project.
